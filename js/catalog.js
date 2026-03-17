@@ -87,7 +87,28 @@ function closeQuoteModal() {
     }
 }
 
-// Init catalog
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (menu) {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+            menu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            menu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    }
+}
+
+// Initial render
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof getProductsByCategory === 'function') {
         renderCatalog('todos');
