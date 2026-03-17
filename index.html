@@ -68,10 +68,10 @@
                 <li><a href="#contacto" class="hover:text-alumic-blue transition-colors">Contacto</a></li>
             </ul>
 
-            <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20gustar%C3%ADa%20recibir%20una%20cotizaci%C3%B3n.%20%C2%BFPodr%C3%ADan%20asesorarme%3F"
+            <button onclick="openQuoteModal()"
                 class="bg-alumic-blue hover:bg-blue-700 text-white font-tech px-6 py-2 rounded-sm transition-all duration-300 uppercase tracking-widest text-xs font-bold shadow-[0_0_15px_rgba(30,64,175,0.3)]">
                 Cotizar
-            </a>
+            </button>
         </div>
     </nav>
 
@@ -487,7 +487,7 @@
                 para tu empresa.</p>
 
             <div class="flex flex-col items-center gap-12">
-                <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20interesa%20recibir%20asesoramiento%20t%C3%A9cnico%20sobre%20sus%20productos.%20%C2%BFPodr%C3%ADamos%20coordinar%20una%20consulta%3F"
+                <button onclick="openQuoteModal()"
                     class="group relative inline-flex items-center gap-4 bg-alumic-orange hover:bg-orange-600 text-white font-tech px-12 py-6 rounded-sm transition-all duration-300 uppercase tracking-widest font-black shadow-[0_15px_30px_rgba(249,115,22,0.3)]">
                     Solicitar Consultoría Técnica
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -496,7 +496,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                </a>
+                </button>
 
                 <div class="flex flex-wrap justify-center gap-12 text-slate-500 font-mono text-[10px] uppercase">
                     <div class="flex flex-col items-center">
@@ -576,6 +576,70 @@
             </div>
         </div>
     </footer>
+
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-alumic-charcoal/90 backdrop-blur-sm" onclick="closeQuoteModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="relative w-full max-w-lg bg-alumic-steel border border-alumic-blue/30 shadow-2xl p-8 md:p-10">
+                <!-- Close Button -->
+                <button onclick="closeQuoteModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Header -->
+                <div class="mb-8">
+                    <span class="font-mono text-[10px] text-alumic-orange uppercase tracking-[0.3em]">Cotización</span>
+                    <h3 class="font-tech text-3xl text-white uppercase mt-2">Solicitar Presupuesto</h3>
+                    <p class="text-slate-500 text-sm mt-2">Completá tus datos y un asesor se contactará en breve.</p>
+                </div>
+
+                <!-- Netlify Form -->
+                <form name="cotizacion" method="POST" data-netlify="true" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="font-mono text-[10px] text-slate-500 uppercase">Nombre Completo</label>
+                            <input type="text" name="nombre" required 
+                                class="w-full bg-alumic-charcoal border border-alumic-steel px-4 py-3 text-white focus:border-alumic-blue outline-none transition-all placeholder:text-slate-700">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-mono text-[10px] text-slate-500 uppercase">Empresa</label>
+                            <input type="text" name="empresa" 
+                                class="w-full bg-alumic-charcoal border border-alumic-steel px-4 py-3 text-white focus:border-alumic-blue outline-none transition-all placeholder:text-slate-700">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="font-mono text-[10px] text-slate-500 uppercase">Email Corporativo</label>
+                        <input type="email" name="email" required 
+                            class="w-full bg-alumic-charcoal border border-alumic-steel px-4 py-3 text-white focus:border-alumic-blue outline-none transition-all placeholder:text-slate-700">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-mono text-[10px] text-slate-500 uppercase">Teléfono / WhatsApp</label>
+                        <input type="tel" name="telefono" required 
+                            class="w-full bg-alumic-charcoal border border-alumic-steel px-4 py-3 text-white focus:border-alumic-blue outline-none transition-all placeholder:text-slate-700">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-mono text-[10px] text-slate-500 uppercase">Consulta / Mensaje</label>
+                        <textarea name="mensaje" rows="4" required
+                            class="w-full bg-alumic-charcoal border border-alumic-steel px-4 py-3 text-white focus:border-alumic-blue outline-none transition-all placeholder:text-slate-700 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-alumic-blue hover:bg-blue-700 text-white font-tech py-4 rounded-sm transition-all duration-300 uppercase tracking-[0.2em] font-bold text-sm shadow-[0_10px_20px_rgba(30,64,175,0.3)]">
+                        Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20comunico%20desde%20la%20web.%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos."

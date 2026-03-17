@@ -1,0 +1,7 @@
+# Git / Web stuff
+.gemini/
+.DS_Store
+Thumbs.db
+node_modules/
+.netlify/
+brain/
