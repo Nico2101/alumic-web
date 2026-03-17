@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumic SRL | Admin - Gestión de Productos</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alumic: {
+                            blue: '#1e40af',
+                            charcoal: '#0f0f11',
+                            steel: '#27272a',
+                            orange: '#f97316',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Oswald', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-alumic-charcoal text-slate-300 font-sans min-h-screen">
+    <!-- Grid Background -->
+    <div class="fixed inset-0 industrial-grid opacity-20 pointer-events-none"></div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center px-6 relative z-10">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-10">
+                <h1 class="font-tech text-4xl font-bold text-white uppercase tracking-tighter">
+                    Alumic <span class="text-alumic-blue">Admin</span>
+                </h1>
+                <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest mt-2">Panel de Gestión de
+                    Productos</p>
+            </div>
+
+            <div class="bg-alumic-steel/30 border border-alumic-steel p-8">
+                <div class="mb-6">
+                    <label class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Contraseña
+                        de Acceso</label>
+                    <input type="password" id="admin-password"
+                        class="w-full bg-alumic-charcoal border border-alumic-steel text-white px-4 py-3 font-mono text-sm focus:border-alumic-blue focus:outline-none transition-colors"
+                        placeholder="Ingresá la contraseña" onkeypress="if(event.key==='Enter')doLogin()">
+                </div>
+                <button onclick="doLogin()"
+                    class="w-full bg-alumic-blue hover:bg-blue-700 text-white font-tech py-3 uppercase tracking-widest text-sm font-bold transition-all duration-300">
+                    Ingresar
+                </button>
+                <p id="login-error" class="text-red-500 font-mono text-xs mt-3 hidden">Contraseña incorrecta</p>
+            </div>
+
+            <div class="text-center mt-6">
+                <a href="index.html"
+                    class="font-mono text-[10px] text-slate-600 uppercase tracking-widest hover:text-alumic-blue transition-colors">
+                    ← Volver al sitio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (hidden until login) -->
+    <div id="admin-panel" class="hidden relative z-10">
+        <!-- Top Bar -->
+        <nav class="sticky top-0 z-50 bg-alumic-charcoal/90 backdrop-blur-md border-b border-alumic-steel px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <h1 class="font-tech text-xl font-bold text-white uppercase tracking-tighter">
+                        Alumic <span class="text-alumic-blue">Admin</span>
+                    </h1>
+                    <span
+                        class="font-mono text-[9px] text-slate-600 uppercase tracking-widest bg-alumic-steel/30 px-3 py-1 border border-alumic-steel">
+                        Gestión de Productos
+                    </span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="index.html"
+                        class="font-mono text-[10px] text-slate-500 uppercase tracking-widest hover:text-alumic-blue transition-colors">
+                        Ver Sitio
+                    </a>
+                    <button onclick="doLogout()"
+                        class="font-tech text-xs uppercase tracking-widest border border-alumic-steel px-4 py-2 text-slate-400 hover:border-red-500 hover:text-red-400 transition-all">
+                        Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-6 py-10">
+            <!-- Header & Add Button -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
+                <div>
+                    <h2 class="font-tech text-3xl font-bold text-white uppercase tracking-tighter">Productos</h2>
+                    <p class="font-mono text-[10px] text-slate-600 uppercase tracking-widest mt-1">
+                        <span id="product-count">0</span> productos registrados
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="resetProducts()"
+                        class="font-tech text-xs uppercase tracking-widest border border-alumic-steel px-5 py-3 text-slate-500 hover:border-alumic-orange hover:text-alumic-orange transition-all">
+                        Resetear Datos
+                    </button>
+                    <button onclick="openModal()"
+                        class="bg-alumic-blue hover:bg-blue-700 text-white font-tech px-6 py-3 uppercase tracking-widest text-xs font-bold transition-all duration-300 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4v16m8-8H4" />
+                        </svg>
+                        Agregar Producto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="admin-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Products loaded dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-6">
+            <div
+                class="bg-alumic-charcoal border border-alumic-steel w-full max-w-lg max-h-[90vh] overflow-y-auto relative">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-center p-6 border-b border-alumic-steel sticky top-0 bg-alumic-charcoal z-10">
+                    <h3 id="modal-title" class="font-tech text-xl text-white uppercase tracking-tighter">Agregar
+                        Producto</h3>
+                    <button onclick="closeModal()" class="text-slate-500 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Form -->
+                <form id="product-form" class="p-6 space-y-5" onsubmit="saveProduct(event)">
+                    <input type="hidden" id="product-id">
+
+                    <div>
+                        <label
+                            class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Nombre
+                            del Producto *</label>
+                        <input type="text" id="product-name" required
+                            class="w-full bg-alumic-steel/20 border border-alumic-steel text-white px-4 py-3 font-sans text-sm focus:border-alumic-blue focus:outline-none transition-colors"
+                            placeholder="Ej: Disco de Corte 115mm">
+                    </div>
+
+                    <div>
+                        <label
+                            class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Descripción
+                            *</label>
+                        <textarea id="product-desc" required rows="3"
+                            class="w-full bg-alumic-steel/20 border border-alumic-steel text-white px-4 py-3 font-sans text-sm focus:border-alumic-blue focus:outline-none transition-colors resize-none"
+                            placeholder="Descripción breve del producto"></textarea>
+                    </div>
+
+                    <div>
+                        <label
+                            class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Categoría
+                            *</label>
+                        <select id="product-category" required
+                            class="w-full bg-alumic-steel/20 border border-alumic-steel text-white px-4 py-3 font-sans text-sm focus:border-alumic-blue focus:outline-none transition-colors">
+                            <option value="">Seleccionar categoría</option>
+                            <option value="abrasivos">Abrasivos</option>
+                            <option value="adhesivos">Adhesivos & Cintas</option>
+                            <option value="maquinaria">Maquinaria & Equipos</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">URL de
+                            Imagen</label>
+                        <input type="url" id="product-image"
+                            class="w-full bg-alumic-steel/20 border border-alumic-steel text-white px-4 py-3 font-sans text-sm focus:border-alumic-blue focus:outline-none transition-colors"
+                            placeholder="https://ejemplo.com/imagen.jpg">
+                        <p class="font-mono text-[9px] text-slate-700 mt-1">Dejá vacío para usar imagen por defecto
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" id="product-featured"
+                                class="w-4 h-4 accent-alumic-orange cursor-pointer">
+                            <span
+                                class="font-mono text-[10px] text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Producto
+                                Destacado</span>
+                        </label>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div id="image-preview-container" class="hidden">
+                        <label
+                            class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Vista
+                            Previa</label>
+                        <img id="image-preview"
+                            class="w-full h-40 object-cover border border-alumic-steel bg-alumic-steel/20">
+                    </div>
+
+                    <div class="flex gap-3 pt-4 border-t border-alumic-steel">
+                        <button type="button" onclick="closeModal()"
+                            class="flex-1 font-tech text-xs uppercase tracking-widest border border-alumic-steel py-3 text-slate-400 hover:border-slate-400 transition-all">
+                            Cancelar
+                        </button>
+                        <button type="submit"
+                            class="flex-1 bg-alumic-blue hover:bg-blue-700 text-white font-tech py-3 uppercase tracking-widest text-xs font-bold transition-all duration-300">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeDeleteModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-6">
+            <div class="bg-alumic-charcoal border border-red-500/30 w-full max-w-sm p-8 text-center">
+                <div
+                    class="w-16 h-16 mx-auto mb-6 bg-red-500/10 border border-red-500/30 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </div>
+                <h3 class="font-tech text-xl text-white uppercase mb-2">Eliminar Producto</h3>
+                <p class="text-slate-500 text-sm mb-8">¿Estás seguro? Esta acción no se puede deshacer.</p>
+                <div class="flex gap-3">
+                    <button onclick="closeDeleteModal()"
+                        class="flex-1 font-tech text-xs uppercase tracking-widest border border-alumic-steel py-3 text-slate-400 hover:border-slate-400 transition-all">
+                        Cancelar
+                    </button>
+                    <button onclick="confirmDelete()"
+                        class="flex-1 bg-red-600 hover:bg-red-700 text-white font-tech py-3 uppercase tracking-widest text-xs font-bold transition-all">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/productos.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

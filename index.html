@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumic SRL | Abrasivos y Adhesivos Industriales</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alumic: {
+                            blue: '#1e40af',    /* Royal Blue */
+                            charcoal: '#0f0f11', /* Deep Charcoal */
+                            steel: '#27272a',   /* Steel Gray */
+                            orange: '#f97316',   /* Safety Orange */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Oswald', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-alumic-charcoal text-slate-300 font-sans selection:bg-alumic-orange selection:text-white">
+
+    <!-- Grid Layout Background -->
+    <div class="fixed inset-0 industrial-grid opacity-20 pointer-events-none"></div>
+    <div class="fixed inset-0 blueprint-overlay pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-50 bg-alumic-charcoal/80 backdrop-blur-md border-b border-alumic-steel overflow-hidden px-6 py-4">
+        <!-- Accent stripe -->
+        <div
+            class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-alumic-blue via-alumic-orange to-alumic-blue">
+        </div>
+
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-4 group">
+                <img src="img/LOGOTIPO.png" alt="Alumic Symbol"
+                    class="w-10 h-10 object-contain group-hover:rotate-12 transition-transform duration-500">
+                <div class="flex flex-col leading-none">
+                    <span class="font-tech text-2xl font-bold tracking-tighter text-white uppercase">Alumic <span
+                            class="text-alumic-blue">SRL</span></span>
+                    <span class="font-mono text-[8px] text-slate-500 uppercase tracking-widest mt-1">Soluciones
+                        Integradas</span>
+                </div>
+            </a>
+
+            <ul class="hidden md:flex gap-8 font-tech uppercase tracking-widest text-sm text-slate-400">
+                <li><a href="#soluciones" class="hover:text-alumic-blue transition-colors">Soluciones</a></li>
+                <li><a href="#catalogo" class="hover:text-alumic-blue transition-colors">Catálogo</a></li>
+                <li><a href="#experiencia" class="hover:text-alumic-blue transition-colors">Experiencia</a></li>
+                <li><a href="#contacto" class="hover:text-alumic-blue transition-colors">Contacto</a></li>
+            </ul>
+
+            <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20gustar%C3%ADa%20recibir%20una%20cotizaci%C3%B3n.%20%C2%BFPodr%C3%ADan%20asesorarme%3F"
+                class="bg-alumic-blue hover:bg-blue-700 text-white font-tech px-6 py-2 rounded-sm transition-all duration-300 uppercase tracking-widest text-xs font-bold shadow-[0_0_15px_rgba(30,64,175,0.3)]">
+                Cotizar
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-alumic-steel">
+        <!-- Hero Background -->
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-alumic-charcoal via-alumic-charcoal/40 to-alumic-charcoal z-10">
+            </div>
+            <img src="img/hero-banner.png" alt="Industrial Background"
+                class="w-full h-full object-cover opacity-60 transition-all duration-1000">
+        </div>
+
+        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1 mb-6 border border-alumic-orange/30 bg-alumic-orange/10 rounded-full">
+                <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-alumic-orange">Technical Performance
+                    Solutions</span>
+            </div>
+            <h1
+                class="font-tech text-6xl md:text-8xl font-bold text-white leading-none mb-6 uppercase tracking-tighter">
+                Especialistas en <br><span
+                    class="text-alumic-blue italic underline decoration-alumic-orange/50 underline-offset-8">Abrasivos</span>
+                & Adhesivos
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                Proveemos soluciones integradas para los sectores de madera, metalúrgica, petróleo y mantenimiento
+                industrial.
+                <span class="text-white font-bold">Distribuidor oficial de sistemas de alto desempeño (3M).</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#soluciones"
+                    class="bg-white hover:bg-slate-200 text-alumic-charcoal font-tech px-10 py-5 rounded-sm transition-all duration-300 uppercase tracking-[0.2em] font-bold text-sm">
+                    Explorar Catálogo
+                </a>
+                <a href="https://www.instagram.com/alumicsrl/" target="_blank"
+                    class="border border-alumic-steel hover:border-alumic-blue bg-alumic-steel/30 text-white font-tech px-10 py-5 rounded-sm transition-all duration-300 uppercase tracking-[0.2em] font-bold text-sm">
+                    Seguir en Instagram
+                </a>
+            </div>
+        </div>
+
+        <!-- Vertical decorative elements -->
+        <div
+            class="absolute left-10 bottom-10 hidden lg:block text-slate-600 font-mono text-[10px] uppercase space-y-4 [writing-mode:vertical-lr]">
+            <span>Est. 1998</span>
+            <div class="w-[1px] h-20 bg-alumic-steel mx-auto"></div>
+            <span>Integrated Solutions</span>
+        </div>
+    </header>
+
+    <!-- Stats / Categories Summary -->
+    <section class="bg-alumic-steel/10 border-b border-alumic-steel py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center group">
+                <div class="font-tech text-4xl text-alumic-orange mb-1 text-glow">35+</div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                    Años de Trayectoria</div>
+            </div>
+            <div class="text-center group">
+                <div class="font-tech text-4xl text-white mb-1">1500+</div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                    Productos Activos</div>
+            </div>
+            <div class="text-center group">
+                <div class="font-tech text-4xl text-white mb-1">24/7</div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                    Asistencia Técnica</div>
+            </div>
+            <div class="text-center group">
+                <div class="font-tech text-4xl text-white mb-1">PRO</div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                    Garantía de Calidad</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluciones Section -->
+    <section id="soluciones" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                <div>
+                    <span class="font-mono text-xs text-alumic-blue uppercase tracking-[0.3em]">Nuestra Oferta</span>
+                    <h2 class="font-tech text-5xl md:text-6xl font-bold text-white uppercase mt-4">Soluciones Integradas
+                    </h2>
+                </div>
+                <p class="text-slate-500 max-w-md border-l border-alumic-steel pl-6 py-2">
+                    Ofrecemos el catálogo más completo de insumos industriales, asegurando eficiencia y seguridad en
+                    cada proceso.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-1">
+                <!-- Abrasivos -->
+                <div
+                    class="group relative bg-alumic-steel/20 border border-alumic-steel overflow-hidden transition-all duration-500 hover:bg-alumic-steel/40 p-8 pt-20">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-mono text-[60px] text-alumic-steel/30 font-bold group-hover:text-alumic-blue/20 transition-colors">
+                        01</div>
+                    <div class="w-16 h-[1px] bg-alumic-blue mb-8 group-hover:w-32 transition-all"></div>
+                    <h3 class="font-tech text-3xl text-white uppercase mb-4 tracking-tighter">Abrasivos Industriales
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Discos de corte, desbaste, bandas de lija y
+                        ruedas de terminación. Calidad superior para metalúrgica y madereras.</p>
+                    <ul class="space-y-2 font-mono text-[10px] text-slate-500 mb-8 uppercase">
+                        <li>• Alta remoción de material</li>
+                        <li>• Larga vida útil</li>
+                        <li>• Seguridad certificada</li>
+                    </ul>
+                    <img src="img/abrasivos.png" alt="Abrasivos Industriales"
+                        class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 mt-auto">
+                </div>
+
+                <!-- Adhesivos -->
+                <div
+                    class="group relative bg-alumic-steel/30 border border-alumic-steel overflow-hidden transition-all duration-500 hover:bg-alumic-steel/50 p-8 pt-20 scale-105 z-10 shadow-2xl">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-mono text-[60px] text-alumic-steel/30 font-bold group-hover:text-alumic-orange/20 transition-colors">
+                        02</div>
+                    <div class="w-16 h-[1px] bg-alumic-orange mb-8 group-hover:w-32 transition-all"></div>
+                    <h3 class="font-tech text-3xl text-white uppercase mb-4 tracking-tighter">Adhesivos & Cintas</h3>
+                    <p class="text-slate-300 text-sm mb-8 leading-relaxed text-glow">Sistemas de unión estructural,
+                        cintas VHB de 3M y adhesivos especiales para condiciones extremas de temperatura y presión.</p>
+                    <ul class="space-y-2 font-mono text-[10px] text-slate-400 mb-8 uppercase">
+                        <li>• Pegado estructural 3M</li>
+                        <li>• Resistencia a químicos</li>
+                        <li>• Curado ultra rápido</li>
+                    </ul>
+                    <img src="img/adhesivos.png" alt="Adhesivos & Cintas"
+                        class="w-full h-48 object-cover rounded-sm transition-all duration-700 mt-auto shadow-lg">
+                </div>
+
+                <!-- Maquinarias -->
+                <div
+                    class="group relative bg-alumic-steel/20 border border-alumic-steel overflow-hidden transition-all duration-500 hover:bg-alumic-steel/40 p-8 pt-20">
+                    <div
+                        class="absolute top-0 right-0 p-4 font-mono text-[60px] text-alumic-steel/30 font-bold group-hover:text-alumic-blue/20 transition-colors">
+                        03</div>
+                    <div class="w-16 h-[1px] bg-alumic-blue mb-8 group-hover:w-32 transition-all"></div>
+                    <h3 class="font-tech text-3xl text-white uppercase mb-4 tracking-tighter">Maquinaria & Equipos</h3>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Herramientas neumáticas, equipos de seguridad
+                        industrial y maquinaria para procesos de lijado y pulido automatizado.</p>
+                    <ul class="space-y-2 font-mono text-[10px] text-slate-500 mb-8 uppercase">
+                        <li>• Equipamiento neumático</li>
+                        <li>• EPP Certificado</li>
+                        <li>• Servicio post-venta</li>
+                    </ul>
+                    <img src="img/maquinaria.png" alt="Maquinaria & Equipos"
+                        class="w-full h-48 object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700 mt-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo Section -->
+    <section id="catalogo" class="py-32 px-6 border-t border-alumic-steel">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <span class="font-mono text-xs text-alumic-orange uppercase tracking-[0.3em]">Productos</span>
+                    <h2 class="font-tech text-5xl md:text-6xl font-bold text-white uppercase mt-4 tracking-tighter">
+                        Catálogo <span class="text-alumic-blue">Industrial</span>
+                    </h2>
+                </div>
+                <p class="text-slate-500 max-w-md border-l border-alumic-steel pl-6 py-2">
+                    Explorá nuestro catálogo completo de productos industriales de alta prestación.
+                </p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2 mb-12">
+                <button onclick="filterCatalog('todos')" id="filter-todos"
+                    class="catalog-filter active font-tech px-6 py-3 text-sm uppercase tracking-widest border border-alumic-steel bg-alumic-blue text-white transition-all duration-300">
+                    Todos
+                </button>
+                <button onclick="filterCatalog('abrasivos')" id="filter-abrasivos"
+                    class="catalog-filter font-tech px-6 py-3 text-sm uppercase tracking-widest border border-alumic-steel bg-alumic-steel/20 text-slate-400 hover:border-alumic-blue hover:text-white transition-all duration-300">
+                    Abrasivos
+                </button>
+                <button onclick="filterCatalog('adhesivos')" id="filter-adhesivos"
+                    class="catalog-filter font-tech px-6 py-3 text-sm uppercase tracking-widest border border-alumic-steel bg-alumic-steel/20 text-slate-400 hover:border-alumic-blue hover:text-white transition-all duration-300">
+                    Adhesivos & Cintas
+                </button>
+                <button onclick="filterCatalog('maquinaria')" id="filter-maquinaria"
+                    class="catalog-filter font-tech px-6 py-3 text-sm uppercase tracking-widest border border-alumic-steel bg-alumic-steel/20 text-slate-400 hover:border-alumic-blue hover:text-white transition-all duration-300">
+                    Maquinaria & Equipos
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-1">
+                <!-- Products loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia Section -->
+    <section id="experiencia" class="py-32 px-6 border-t border-alumic-steel relative overflow-hidden">
+        <!-- Background accent -->
+        <div class="absolute inset-0 bg-gradient-to-br from-alumic-blue/5 via-transparent to-alumic-orange/5"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                <div>
+                    <span class="font-mono text-xs text-alumic-orange uppercase tracking-[0.3em]">Nuestra
+                        Trayectoria</span>
+                    <h2 class="font-tech text-5xl md:text-6xl font-bold text-white uppercase mt-4 tracking-tighter">
+                        +35 Años de<br><span class="text-alumic-blue">Experiencia</span></h2>
+                </div>
+                <p class="text-slate-500 max-w-md border-l border-alumic-steel pl-6 py-2">
+                    Desde 1990, Alumic SRL ha sido sinónimo de calidad y confianza en el sector industrial argentino.
+                </p>
+            </div>
+
+            <!-- Company Story -->
+            <div class="grid md:grid-cols-2 gap-16 mb-32">
+                <!-- Left: Story -->
+                <div class="space-y-8">
+                    <div class="border-l-2 border-alumic-blue pl-8 space-y-6">
+                        <div>
+                            <span class="font-mono text-[10px] text-alumic-blue uppercase tracking-widest">Nuestros
+                                Orígenes</span>
+                            <p class="text-slate-300 mt-2 leading-relaxed">
+                                Alumic SRL nació con la misión de proveer insumos industriales de la más alta calidad al
+                                mercado argentino. Con más de tres décadas en el rubro, nos hemos consolidado como
+                                referentes en abrasivos y adhesivos industriales.
+                            </p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-alumic-orange uppercase tracking-widest">Nuestra
+                                Visión</span>
+                            <p class="text-slate-300 mt-2 leading-relaxed">
+                                Ser el socio estratégico número uno para la industria en soluciones de abrasión y unión
+                                estructural, brindando productos de primera línea y asesoramiento técnico
+                                personalizado.
+                            </p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-alumic-blue uppercase tracking-widest">Compromiso
+                                de Calidad</span>
+                            <p class="text-slate-300 mt-2 leading-relaxed">
+                                Como distribuidores oficiales de marcas líderes como 3M, garantizamos productos
+                                certificados que cumplen con los más exigentes estándares internacionales de calidad y
+                                seguridad industrial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Milestones -->
+                <div class="space-y-6">
+                    <div
+                        class="group flex gap-6 p-6 bg-alumic-steel/20 border border-alumic-steel hover:border-alumic-blue/50 transition-all duration-500">
+                        <div class="font-tech text-4xl text-alumic-blue font-bold shrink-0">90'</div>
+                        <div>
+                            <h4 class="font-tech text-white uppercase text-lg tracking-tight">Fundación</h4>
+                            <p class="text-slate-500 text-sm mt-1">Inicio de operaciones como proveedor de abrasivos en
+                                el mercado local.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex gap-6 p-6 bg-alumic-steel/20 border border-alumic-steel hover:border-alumic-orange/50 transition-all duration-500">
+                        <div class="font-tech text-4xl text-alumic-orange font-bold shrink-0">00'</div>
+                        <div>
+                            <h4 class="font-tech text-white uppercase text-lg tracking-tight">Expansión</h4>
+                            <p class="text-slate-500 text-sm mt-1">Incorporación de adhesivos industriales y cintas
+                                técnicas al catálogo. Primeras alianzas estratégicas.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex gap-6 p-6 bg-alumic-steel/20 border border-alumic-steel hover:border-alumic-blue/50 transition-all duration-500">
+                        <div class="font-tech text-4xl text-alumic-blue font-bold shrink-0">10'</div>
+                        <div>
+                            <h4 class="font-tech text-white uppercase text-lg tracking-tight">Distribución Oficial</h4>
+                            <p class="text-slate-500 text-sm mt-1">Nos convertimos en distribuidores oficiales de 3M y
+                                otras marcas líderes del sector.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex gap-6 p-6 bg-alumic-steel/20 border border-alumic-steel hover:border-alumic-blue/50 transition-all duration-500">
+                        <div class="font-tech text-4xl text-white font-bold shrink-0">HOY</div>
+                        <div>
+                            <h4 class="font-tech text-white uppercase text-lg tracking-tight">Liderazgo Regional</h4>
+                            <p class="text-slate-500 text-sm mt-1">+1500 productos activos, asistencia técnica 24/7 y
+                                presencia en todo el territorio nacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Reviews -->
+            <div class="mt-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div>
+                        <span class="font-mono text-xs text-alumic-blue uppercase tracking-[0.3em]">Reseñas
+                            Verificadas</span>
+                        <h3 class="font-tech text-3xl md:text-4xl font-bold text-white uppercase mt-3 tracking-tighter">
+                            Lo que dicen nuestros <span class="text-alumic-orange">clientes</span></h3>
+                    </div>
+                    <div class="flex items-center gap-3 bg-alumic-steel/30 border border-alumic-steel px-6 py-3">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                                fill="#4285F4" />
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                fill="#34A853" />
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                fill="#FBBC05" />
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                fill="#EA4335" />
+                        </svg>
+                        <div>
+                            <div class="flex items-center gap-1">
+                                <span class="font-tech text-white text-xl font-bold">4.9</span>
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                            </div>
+                            <span class="font-mono text-[9px] text-slate-500 uppercase">Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Grid -->
+                <div class="grid md:grid-cols-3 gap-1">
+                    <!-- Review 1 -->
+                    <div
+                        class="bg-alumic-steel/20 border border-alumic-steel p-8 hover:border-alumic-blue/30 transition-all duration-500">
+                        <div class="flex text-yellow-400 text-sm mb-4">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
+                            "Excelente atención y productos de primera calidad. Siempre nos asesoran técnicamente para
+                            encontrar la mejor solución. Los discos y bandas que compramos rinden el doble que los de
+                            otros proveedores."
+                        </p>
+                        <div class="flex items-center gap-3 border-t border-alumic-steel/50 pt-4">
+                            <div
+                                class="w-10 h-10 bg-alumic-blue/20 border border-alumic-blue/30 flex items-center justify-center font-tech text-alumic-blue font-bold">
+                                MR</div>
+                            <div>
+                                <span class="text-white text-sm font-bold block">Martín R.</span>
+                                <span class="font-mono text-[9px] text-slate-600 uppercase">Metalúrgica Regional
+                                    S.A.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div
+                        class="bg-alumic-steel/20 border border-alumic-steel p-8 hover:border-alumic-orange/30 transition-all duration-500">
+                        <div class="flex text-yellow-400 text-sm mb-4">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
+                            "Trabajamos con Alumic desde hace más de 10 años. Su stock es muy completo y las entregas
+                            siempre son puntuales. El asesoramiento técnico que brindan marca la diferencia con otros
+                            proveedores."
+                        </p>
+                        <div class="flex items-center gap-3 border-t border-alumic-steel/50 pt-4">
+                            <div
+                                class="w-10 h-10 bg-alumic-orange/20 border border-alumic-orange/30 flex items-center justify-center font-tech text-alumic-orange font-bold">
+                                CL</div>
+                            <div>
+                                <span class="text-white text-sm font-bold block">Carlos L.</span>
+                                <span class="font-mono text-[9px] text-slate-600 uppercase">Carpintería Industrial
+                                    Don Carlos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div
+                        class="bg-alumic-steel/20 border border-alumic-steel p-8 hover:border-alumic-blue/30 transition-all duration-500">
+                        <div class="flex text-yellow-400 text-sm mb-4">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
+                            "Profesionalismo de primer nivel. Los adhesivos estructurales de 3M que nos proveen
+                            han mejorado significativamente nuestros procesos de ensamblado. Muy recomendable para
+                            cualquier industria."
+                        </p>
+                        <div class="flex items-center gap-3 border-t border-alumic-steel/50 pt-4">
+                            <div
+                                class="w-10 h-10 bg-alumic-blue/20 border border-alumic-blue/30 flex items-center justify-center font-tech text-alumic-blue font-bold">
+                                AF</div>
+                            <div>
+                                <span class="text-white text-sm font-bold block">Ana F.</span>
+                                <span class="font-mono text-[9px] text-slate-600 uppercase">Petroquímica del
+                                    Sur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Contact -->
+    <section id="contacto" class="relative py-32 overflow-hidden border-t border-alumic-steel">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="img/produccion-banner.png" alt="Producción Industrial"
+                class="w-full h-full object-cover opacity-40">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-alumic-charcoal/80 via-alumic-charcoal/60 to-alumic-charcoal/90">
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="font-tech text-5xl md:text-7xl font-bold text-white uppercase mb-8 tracking-tighter">
+                Impulsa tu <br><span class="text-transparent border-b-2 border-alumic-orange"
+                    style="-webkit-text-stroke: 1px #fff;">Producción</span>
+            </h2>
+            <p class="text-slate-400 text-lg mb-12">Consultá con nuestros expertos por asesoramiento técnico a medida
+                para tu empresa.</p>
+
+            <div class="flex flex-col items-center gap-12">
+                <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20interesa%20recibir%20asesoramiento%20t%C3%A9cnico%20sobre%20sus%20productos.%20%C2%BFPodr%C3%ADamos%20coordinar%20una%20consulta%3F"
+                    class="group relative inline-flex items-center gap-4 bg-alumic-orange hover:bg-orange-600 text-white font-tech px-12 py-6 rounded-sm transition-all duration-300 uppercase tracking-widest font-black shadow-[0_15px_30px_rgba(249,115,22,0.3)]">
+                    Solicitar Consultoría Técnica
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-12 text-slate-500 font-mono text-[10px] uppercase">
+                    <div class="flex flex-col items-center">
+                        <span class="text-white block mb-2">WhatsApp Directo</span>
+                        <span>+54 9 2614 54-2257</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-white block mb-2">Instagram</span>
+                        <a href="https://www.instagram.com/alumicsrl/" target="_blank"
+                            class="hover:text-alumic-blue transition-colors">@alumicsrl</a>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-white block mb-2">Email corporativo</span>
+                        <span>ventas@alumicsrl.com.ar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-alumic-charcoal py-20 px-6 border-t border-alumic-steel relative overflow-hidden">
+        <!-- Hazard stripes footer bottom -->
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-alumic-orange flex">
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] -ml-5"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+            <div class="h-full w-20 bg-alumic-charcoal skew-x-[-45deg] ml-10"></div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+            <div>
+                <div class="flex items-center gap-4 mb-6 justify-center md:justify-start">
+                    <img src="img/LOGOTIPO.png" alt="Alumic" class="w-8 h-8 object-contain">
+                    <span class="font-tech text-xl font-bold tracking-tighter text-white uppercase">Alumic <span
+                            class="text-alumic-blue">SRL</span></span>
+                </div>
+                <p class="text-slate-600 text-xs max-w-xs font-mono uppercase leading-relaxed">
+                    Líder en provisión de insumos industriales de alta prestación. Especialistas en procesos de abrasión
+                    y unión estructural.
+                </p>
+            </div>
+
+            <div class="flex gap-20">
+                <div class="space-y-4">
+                    <h4 class="font-tech text-white uppercase tracking-widest text-sm">Industrial</h4>
+                    <ul class="text-slate-600 space-y-2 text-[10px] font-mono uppercase">
+                        <li>Abrasivos</li>
+                        <li>Adhesivos</li>
+                        <li>Maquinaria</li>
+                        <li>Seguridad</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-tech text-white uppercase tracking-widest text-sm">Empresa</h4>
+                    <ul class="text-slate-600 space-y-2 text-[10px] font-mono uppercase">
+                        <li>Sobre Nosotros</li>
+                        <li>Marcas</li>
+                        <li>Servicios</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-right flex flex-col items-center md:items-end">
+                <span class="font-mono text-[10px] text-slate-700 uppercase mb-4">&copy; 2026 Alumic SRL. All Rights
+                    Reserved.</span>
+                <div class="flex gap-4">
+                    <div class="w-8 h-[1px] bg-alumic-steel my-auto"></div>
+                    <span class="font-mono text-[8px] text-slate-800 uppercase tracking-[0.4em]">Integrated • Technical
+                        • Pro</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5492614542257?text=Hola%20Alumic%2C%20me%20comunico%20desde%20la%20web.%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos."
+        target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] w-16 h-16 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_4px_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <!-- Pulse animation -->
+        <span class="absolute w-full h-full rounded-full bg-[#25D366] animate-ping opacity-20"></span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/productos.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
