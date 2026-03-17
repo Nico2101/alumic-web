@@ -54,3 +54,25 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Ajustes para Celulares (Responsivo) */
+@media (max-width: 768px) {
+    .industrial-grid {
+        background-size: 20px 20px;
+    }
+    
+    .blueprint-overlay {
+        background-size: 50px 50px;
+    }
+
+    /* Reducir paddings generales en móvil */
+    section {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    /* Ajuste para tipografías en móvil */
+    h1, h2, h3 {
+        word-break: break-word;
+    }
+}
