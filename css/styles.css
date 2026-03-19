@@ -22,6 +22,22 @@
     text-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
 }
 
+/* Premium Button Glow */
+.btn-glow-blue:hover {
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-glow-orange:hover {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-glow-white:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    filter: brightness(1.05);
+}
+
 @keyframes spark {
     0% {
         opacity: 0;
