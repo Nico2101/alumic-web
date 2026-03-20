@@ -1,9 +1,34 @@
-/* ============================================
-   Alumic SRL - Sistema de Estilos Industriales
-   ============================================ */
+:root {
+    /* Tema Oscuro (Default) */
+    --bg-primary: #0f0f11;
+    --bg-secondary: #18181b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #1e40af;
+    --accent-orange: #f97316;
+    --grid-opacity: 0.3;
+    --blueprint-opacity: 0.2;
+    --glow-opacity: 0.5;
+    --card-bg: rgba(24, 24, 27, 0.4);
+    --border-color: rgba(63, 63, 70, 0.3);
+}
+
+:root[data-theme="light"] {
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-blue: #2563eb;
+    --accent-orange: #ea580c;
+    --grid-opacity: 0.15;
+    --blueprint-opacity: 0.1;
+    --glow-opacity: 0.3;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(148, 163, 184, 0.2);
+}
 
 .industrial-grid {
-    background-image: radial-gradient(circle, #27272a 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--text-secondary) 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
@@ -31,7 +56,7 @@
 }
 
 .section-blend-top {
-    background: linear-gradient(to bottom, #0f0f11, transparent);
+    background: linear-gradient(to bottom, var(--bg-primary), transparent);
     position: absolute;
     top: 0;
     left: 0;
@@ -42,7 +67,7 @@
 }
 
 .section-blend-bottom {
-    background: linear-gradient(to top, #0f0f11, transparent);
+    background: linear-gradient(to top, var(--bg-primary), transparent);
     position: absolute;
     bottom: 0;
     left: 0;
