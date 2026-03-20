@@ -113,4 +113,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof getProductsByCategory === 'function') {
         renderCatalog('todos');
     }
+    updateThemeIcons();
 });
+
+// Theme Toggle Functionality
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcons();
+}
+
+function updateThemeIcons() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    
+    if (currentTheme === 'light') {
+        sunIcon?.classList.remove('hidden');
+        moonIcon?.classList.add('hidden');
+    } else {
+        sunIcon?.classList.add('hidden');
+        moonIcon?.classList.remove('hidden');
+    }
+}
