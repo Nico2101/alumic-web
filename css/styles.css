@@ -14,18 +14,31 @@
 }
 
 :root[data-theme="light"] {
-    --bg-primary: #f1f5f9;
-    --bg-secondary: #e2e8f0;
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --accent-blue: #2563eb;
     --accent-orange: #ea580c;
-    --grid-opacity: 0.15;
-    --blueprint-opacity: 0.1;
-    --glow-opacity: 0.3;
-    --card-bg: rgba(255, 255, 255, 0.7);
-    --border-color: rgba(148, 163, 184, 0.2);
+    --grid-opacity: 0.1;
+    --blueprint-opacity: 0.05;
+    --glow-opacity: 0.2;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(0, 0, 0, 0.05);
 }
+
+/* Global Overrides for Theming */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-alumic-charcoal { background-color: var(--bg-primary) !important; }
+.bg-alumic-steel { background-color: var(--bg-secondary) !important; }
+.text-white { color: var(--text-primary) !important; }
+.text-slate-400 { color: var(--text-secondary) !important; }
+.border-alumic-steel { border-color: var(--border-color) !important; }
 
 .industrial-grid {
     background-image: radial-gradient(circle, var(--text-secondary) 1px, transparent 1px);
