@@ -36,9 +36,10 @@ body {
 
 .bg-alumic-charcoal { background-color: var(--bg-primary) !important; }
 .bg-alumic-steel { background-color: var(--bg-secondary) !important; }
-.text-white { color: var(--text-primary) !important; }
-.text-slate-400 { color: var(--text-secondary) !important; }
+.text-white, .text-slate-200, .text-slate-300 { color: var(--text-primary) !important; }
+.text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700 { color: var(--text-secondary) !important; }
 .border-alumic-steel { border-color: var(--border-color) !important; }
+
 
 .industrial-grid {
     background-image: radial-gradient(circle, var(--text-secondary) 1px, transparent 1px);
