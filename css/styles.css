@@ -14,6 +14,41 @@
     background-size: 100px 100px;
 }
 
+/* Fading Grids & Backgrounds */
+.fade-y {
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.fade-top {
+    mask-image: linear-gradient(to bottom, transparent, black 25%);
+}
+
+.fade-bottom {
+    mask-image: linear-gradient(to top, transparent, black 25%);
+}
+
+.section-blend-top {
+    background: linear-gradient(to bottom, #0f0f11, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.section-blend-bottom {
+    background: linear-gradient(to top, #0f0f11, transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    pointer-events: none;
+    z-index: 10;
+}
+
 .hazard-border {
     border-image: repeating-linear-gradient(45deg, #f97316, #f97316 10px, #0f0f11 10px, #0f0f11 20px) 10;
 }
